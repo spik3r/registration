@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: registration-service
+  kafka:
+    consumer:
+      bootstrap-servers: PLAINTEXT://127.0.0.1:9092
+      topic: registration
+      group-id: group-id_1
+      auto-offset-reset: earliest
+      sleep-in-ms: 0
+
+    producer:
+      bootstrap-servers: PLAINTEXT://127.0.0.1:9092
+#      client-id: client-id_1
+#    properties:
+#      security.protocol: "PLAINTEXT"
+  jpa:
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: changeme
+  liquibase:
+    change-log: classpath:/db/changelog-master.xml
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/postgres
+

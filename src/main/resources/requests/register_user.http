@@ -1,0 +1,8 @@
+
+###
+POST http://localhost:8080/users/register/
+Content-Type: application/x-www-form-urlencoded
+
+firstName=Mr&lastName=Bean&email=test@mail.com&password=123abc
+
+###
