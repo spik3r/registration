@@ -6,14 +6,14 @@ spring:
     name: registration-service
   kafka:
     consumer:
-      bootstrap-servers: PLAINTEXT://127.0.0.1:9092
+      bootstrap-servers: 127.0.0.1:9092
       topic: registration
       group-id: group-id_1
       auto-offset-reset: earliest
       sleep-in-ms: 0
 
     producer:
-      bootstrap-servers: PLAINTEXT://127.0.0.1:9092
+      bootstrap-servers: 127.0.0.1:9092
 #      client-id: client-id_1
 #    properties:
 #      security.protocol: "PLAINTEXT"

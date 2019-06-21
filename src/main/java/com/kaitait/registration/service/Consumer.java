@@ -13,9 +13,15 @@ public class Consumer {
 
     private final Logger logger = LoggerFactory.getLogger(Producer.class);
 
-    @KafkaListener(topics = "${spring.kafka.consumer.topic}", groupId = "${spring.kafka.consumer.group-id}", clientIdPrefix = "client-id_1")
+    @KafkaListener(topics = "${spring.kafka.consumer.topic}", groupId = "${spring.kafka.consumer.group-id}")
     public User consume(User user) throws IOException {
         logger.info(String.format("#### -> Consumed message -> %s", user));
         return user;
     }
+
+//    @KafkaListener(topics = "${spring.kafka.consumer.topic}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "kafkaListenerContainerFactory")
+//    public User consume(final User user) throws IOException {
+//        log.warn(String.format("#### -> Consumed user: -> %s", user));
+//        return user;
+//    }
 }
