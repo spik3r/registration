@@ -33,10 +33,13 @@ public class UserService {
         return Collections.singletonList(userRepository.getById(id));
     }
 
+    // Soft delete
     public void deleteById(final String id) {
-        userRepository.deleteById(id);
+        User user = userRepository.getById(id);
+        userRepository.save(softDelete(user));
     }
 
+    //Hard delete
     public String deleteByEmail(final String email) {
         return userRepository.deleteByEmail(email);
     }
@@ -50,7 +53,11 @@ public class UserService {
         userRepository.save(getUpdatedUser(oldUser, newUser));
     }
 
-    User getUpdatedUser(final User oldUser, final User newUser) {
+    private User softDelete(final User user) {
+        final User deletedUser = new User("-", "-", "-", "-");
+        return getUpdatedUser(user, deletedUser);
+    }
+    private User getUpdatedUser(final User oldUser, final User newUser) {
         return new User(oldUser, newUser);
     }
 }

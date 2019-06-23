@@ -52,7 +52,7 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
-    @ApiOperation("Delete users by email")
+    @ApiOperation("Hard Delete users by email")
     @DeleteMapping("/email")
     ResponseEntity<String> deleteByEmail(@RequestParam final String email);
 
@@ -70,7 +70,7 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
-    @ApiOperation("Delete user by id")
+    @ApiOperation("Soft Delete user by id")
     @DeleteMapping("/id")
     ResponseEntity<String> deleteById(@RequestParam  final String id);
 }

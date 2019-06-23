@@ -55,7 +55,8 @@ class UserServiceSpec extends Specification {
         userService.deleteById(id)
 
         then:
-        1 * userRepository.deleteById(id)
+        1 * userRepository.getById(id) >> user
+        1 * userRepository.save(_)
 
         where: id << ["1","12","123","1234","112345","1123456"]
     }
