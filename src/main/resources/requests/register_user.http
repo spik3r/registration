@@ -1,8 +1,8 @@
 
 ###
-POST http://localhost:8080/api/users/register/
+POST http://localhost:8080/api/users/users/register
 Content-Type: application/x-www-form-urlencoded
 
-firstName=Kai&lastName=Tait&email=fooBar@mail.com&password=123@bc!
+firstName=Kai&lastName=Tait&email=fooBar@mail.com&password=123abc
 
 ###

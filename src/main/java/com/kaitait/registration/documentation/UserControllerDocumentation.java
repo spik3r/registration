@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ApiOperation("Register a new User")
-    @PostMapping("/users/register")
+    @PostMapping("/register")
     ResponseEntity<User> register(@RequestParam final String firstName, @RequestParam final String lastName, @RequestParam final String email, @RequestParam final String password);
 
     @ApiResponses(value= {
@@ -25,7 +26,7 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ApiOperation("Update user by id")
-    @PostMapping("/users/update")
+    @PostMapping("/update")
     ResponseEntity<String> updateById(@RequestParam String id, @RequestParam final String firstName, @RequestParam final String lastName, @RequestParam final String email, @RequestParam final String password);
 
     @ApiResponses(value= {
@@ -34,7 +35,7 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ApiOperation("Get all Users")
-    @GetMapping("/users")
+    @GetMapping("/")
     ResponseEntity<List<User>> getAll();
 
     @ApiResponses(value= {
@@ -43,8 +44,8 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ApiOperation("Get users by email")
-    @GetMapping("/users/email/{email}")
-    ResponseEntity<List<User>> getByEmail(@PathVariable final String email);
+    @GetMapping("/email")
+    ResponseEntity<List<User>> getByEmail(@RequestParam final String email);
 
     @ApiResponses(value= {
             @ApiResponse(code = 204, message = "Deleted"),
@@ -52,8 +53,8 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ApiOperation("Delete users by email")
-    @DeleteMapping("/users/email/{email}")
-    ResponseEntity<String> deleteByEmail(@PathVariable final String email);
+    @DeleteMapping("/email")
+    ResponseEntity<String> deleteByEmail(@RequestParam final String email);
 
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Ok", response = User.class),
@@ -61,8 +62,8 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ApiOperation("Get user by id")
-    @GetMapping("/users/{id}")
-    ResponseEntity<List<User>> getById(@PathVariable final String id);
+    @GetMapping("/id")
+    ResponseEntity<List<User>> getById(@RequestParam  final String id);
 
     @ApiResponses(value= {
             @ApiResponse(code = 204, message = "Deleted"),
@@ -70,6 +71,6 @@ public interface UserControllerDocumentation {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ApiOperation("Delete user by id")
-    @DeleteMapping("/users/{id}")
-    ResponseEntity<String> deleteById(@PathVariable final String id);
+    @DeleteMapping("/id")
+    ResponseEntity<String> deleteById(@RequestParam  final String id);
 }

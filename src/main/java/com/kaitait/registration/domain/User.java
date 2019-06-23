@@ -14,6 +14,7 @@ import lombok.extern.java.Log;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class User {
 

@@ -18,10 +18,4 @@ public class Consumer {
         logger.info(String.format("#### -> Consumed message -> %s", user));
         return user;
     }
-
-//    @KafkaListener(topics = "${spring.kafka.consumer.topic}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "kafkaListenerContainerFactory")
-//    public User consume(final User user) throws IOException {
-//        log.warn(String.format("#### -> Consumed user: -> %s", user));
-//        return user;
-//    }
 }

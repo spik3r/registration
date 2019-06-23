@@ -11,9 +11,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, String> {
     List<User> findByEmail(String email);
     List<User> findAll();
-
     User getById(String id);
-
     @Transactional
     String deleteByEmail(final String email);
 }

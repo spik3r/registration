@@ -19,7 +19,7 @@ public class UserService {
         this.producer = producer;
     }
 
-    public User register(User user) {
+    public User register(final User user) {
         final User savedUser = userRepository.save(user);
         producer.sendMessage(savedUser);
         return savedUser;
@@ -45,9 +45,12 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    public void updateBy(String id, User newUser) {
+    public void updateBy(final String id, final User newUser) {
         final User oldUser = userRepository.getById(id);
-        final User updatedUser = new User(oldUser, newUser);
-        userRepository.save(updatedUser);
+        userRepository.save(getUpdatedUser(oldUser, newUser));
+    }
+
+    User getUpdatedUser(final User oldUser, final User newUser) {
+        return new User(oldUser, newUser);
     }
 }

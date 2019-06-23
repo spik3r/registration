@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
-
 @Service
 public class Producer {
 
@@ -20,9 +18,6 @@ public class Producer {
     public Producer(KafkaTemplate<String, User> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
-
-
-
 
     public void sendMessage(User user) {
         logger.info(String.format("#### -> Producing user -> %s", user));

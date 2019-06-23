@@ -1,4 +1,5 @@
 --liquibase formatted sql
+--changeset author:Kai
 
 CREATE TABLE "users" (
                                 id                VARCHAR(36)    NOT NULL,
@@ -10,6 +11,5 @@ CREATE TABLE "users" (
 
                                 PRIMARY KEY (id)
 );
-
 
 --rollback drop table users;
