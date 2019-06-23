@@ -23,13 +23,11 @@ services:
     command: [start-kafka.sh]
     ports:
       - "9092:9092"
-#    hostname: kafka
     environment:
       KAFKA_CREATE_TOPICS: "registration:2:2:compact"
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1 #10.86.25.77 #kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_PORT: 9092
-#      KAFKA_BROKER_ID: 1
     depends_on:
       - "zookeeper"
   email:

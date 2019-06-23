@@ -11,6 +11,7 @@
     user: postgres
     password: changeme
     port: 5432
+    db name: postgres
 ####Kafka: 
     topic name: registration
     port: 9092
@@ -30,3 +31,6 @@ All below requests can be found under the `resources/requests` directory
 ##Getting user by ID:
 >Note this will need you to update the ID in the below mentioned http request with the id you want to get
 - call the endpoint using postman, curl or right click & run `get_user_by_id.http` from within IntelliJ or your IDE
+
+##Swagger Url:
+http://localhost:8080/swagger-ui.html#/
